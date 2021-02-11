@@ -5,6 +5,7 @@ const userInformation = document.getElementById('userInformation')
 const light = document.getElementById('light')
 const dark = document.getElementById('dark')
 const visitsWebsite = document.getElementById("numberOfVisits")
+const userName = document.getElementById("nameOfUser")
 
 ///Gather information for current Session from Local Storage
 let userStorage = window.localStorage.getItem('userStorage')
@@ -15,7 +16,7 @@ const docHeader = document.getElementsByTagName('header')
 const docMain = document.getElementsByTagName('main')
 const docFooter = document.getElementsByTagName("footer")
 
-if (userStorage === null || visitorCounter === 0 || currentTheme === null) {
+if (userStorage === null || visitorCounter === 0 || visitorCounter === "NaN" || currentTheme === null) {
     ///Gather information from User
     userStorage = window.prompt("Could you please tell me your name?").trim()
     currentTheme = window.prompt("Could you type which theme you want? [light] or [dark]").trim()
@@ -25,15 +26,17 @@ if (userStorage === null || visitorCounter === 0 || currentTheme === null) {
     window.localStorage.setItem('visitorCounter', 1)
     window.localStorage.setItem('currentTheme', currentTheme)
 } else {
-    if (currentTheme == "light") {
-        lightTheme()
-    } else if (currentTheme == "dark") {
-        darkTheme()
-    }
     totalVisits = 1 + parseInt(visitorCounter)
     window.localStorage.setItem('visitorCounter', totalVisits)
 }
 
+if (currentTheme == "light") {
+    lightTheme()
+} else if (currentTheme == "dark") {
+    darkTheme()
+}
+
+userName.innerHTML = userStorage
 visitsWebsite.innerHTML = totalVisits
 light.addEventListener('click', lightTheme)
 dark.addEventListener('click', darkTheme)
