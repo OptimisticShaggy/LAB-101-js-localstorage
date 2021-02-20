@@ -3,7 +3,9 @@ The purpose of this project is to talk about Local Storage for Javascript.
 
 ## Code
 Get Item: `window.localStorage.getItem('variable')`  
-Set item: `window.localStorage.setItem('variable', value)`
+Set item: `window.localStorage.setItem('variable', value)`  
+Remove Item: `window.localStorage.removeItem('variable')`  
+Retrieve Data from localStorage: `localStorage.valueOf()`
 
 ## Resources
 A few Different sources that would be helpful for this lesson:
